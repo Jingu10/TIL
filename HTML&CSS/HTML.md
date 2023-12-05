@@ -98,3 +98,12 @@ ex) 드라마를 선택하면, genre의 값이 drama가 된다.
   <option value="vareity">예능</option>
 </select>
 ```
+
+* 반드시 입력해야 하는 값 required
+    * required인 인풋의 값이 비어있다면, 전송 버튼을 눌러도 전송되지 않는다.
+    * <input name="email" type="email" required>
+* autocomplete 속성: 인풋창 눌렀을 때 예전에 입력한 값들을 보여주는 속성 (자동완성)
+    * ex) <input name="email" type="text" autocomplete="on">
+    * on이라는 값을 지정해주어야 작동한다.
+    * type이 email이라면 autocomplete="email" 이런식으로도 쓸 수 있다.
+
