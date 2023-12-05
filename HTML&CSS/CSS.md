@@ -78,11 +78,16 @@ background-size: 40px 30px; /* 가로 40px 세로 30px */
 * 배경색만 반투명하게 하고 싶다면? rgba
 ---
 * ### box-sizing: border-box; // border를 기준으로 너비 설정 (기본은 content를 기준으로 설정)
+* overflow: auto // 넘치면 스크롤 (scroll은 항상 스크롤)
 * overflow: scroll // 넘치는 내용을 가려주고, 스크롤 해서 볼 수 있도록 설정 해준다
 * overflow: scroll; white-space: no-wrap <br>// 자동 줄바꿈되는 것을 안되게 바꾼 후 넘치는 내용을 스크롤로 처리 하면 가로로 스크롤 되게 해준다
 
 ---
-* [마진상쇄원리] (https://velog.io/@raram2/CSS-%EB%A7%88%EC%A7%84-%EC%83%81%EC%87%84Margin-collapsing-%EC%9B%90%EB%A6%AC-%EC%99%84%EB%B2%BD-%EC%9D%B4%ED%95%B4)
->마진이란 콘텐츠 간의 간격이고, 간격을 벌리기 위해서는 경계를 필요로 합니다. 브라우저는 부모 박스와 첫 번째(마지막) 자식 박스 간의 경계를 그 사이에 있는 border / padding / inline 콘텐츠 유무로 판단합니다.<br><br>따라서 부모와 첫 번째(마지막) 자식 사이에 inline 콘텐츠(텍스트 등)가 없거나, 상단(하단)에 명시적으로 padding 또는 border 값을 주지 않았다면 마진이 겹치게 됩니다. 이때, 자식 요소의 마진이 더 크든 작든 상관없이 상쇄된 마진은 부모 박스의 바깥으로만 렌더링이 됩니다. 😨
+* [마진상쇄원리] (https://velog.io/@raram2/CSS-%EB%A7%88%EC%A7%84-%EC%83%81%EC%87%84Margin-collapsing-%EC%9B%90%EB%A6%AC-%EC%99%84%EB%B2%BD-%EC%9D%B4%ED%95%B4) // 마진상쇄는 세로로만 적용
+>마진이란 콘텐츠 간의 간격이고, 간격을 벌리기 위해서는 경계를 필요로 합니다. 브라우저는 부모 박스와 첫 번째(마지막) 자식 박스 간의 경계를 그 사이에 있는 border / padding / inline 콘텐츠 유무로 판단합니다.<br><br>따라서, 부모와 첫 번째(마지막) 자식 사이에 inline 콘텐츠(텍스트 등)가 없거나, 상단(하단)에 명시적으로 padding 또는 border 값을 주지 않았다면 마진이 겹치게 됩니다. 이때, 자식 요소의 마진이 더 크든 작든 상관없이 상쇄된 마진은 부모 박스의 바깥으로만 렌더링이 됩니다. 😨
 * [마진상쇄해결] (https://velog.io/@ursr0706/%EB%A7%88%EC%A7%84margin)
 
+---
+* border-radius: 9999px; // 아주 큰 값을 지정하면 알약 형태가 된다.
+* inline은 너비나 높이를 지정할 수 없고 (img태그는 예외), 여백은 가로로만 가능!! 글을 쓰는 방향으로 줄넘김되면서 배치된다.
+* inline-block: 배치는 inline처럼, 블록처럼 크기를 지정할 수 있다. 
