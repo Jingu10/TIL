@@ -111,3 +111,12 @@ background-size: 40px 30px; /* 가로 40px 세로 30px */
   * left, right 의 크기를 모두 지정할 경우 너비 지정 하는 것처럼 할 수도 있음.
  
 * inset: 0; // 모든 방향에 대해서 위치를 0
+
+* position: fixed
+  * 브라우저 화면을 기준으로 고정된 배치
+  * 요소의 원래 자리는 차지하지 않는다.
+  * nav바에 fixed를 적용하고, content와 겹치지 않게 하려면 margin을 주면 된다.
+ 
+ * position: sticky
+   * static 처럼 원래 위치에 배치돼 있다가, 정해진 위치에 브라우저가 스크롤되면 그때부터 fixed처럼 고정
+   * 요소의 원래 자리를 차지
