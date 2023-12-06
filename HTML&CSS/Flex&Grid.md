@@ -8,10 +8,11 @@
   * align-items: flex-container 안에서 전체 item의 배치를 어떻게 할 것이냐에 대한 속성
   * align-content: flex-conttainer 안에서 item의 줄 간격을 어떻게 배치할 것이냐에 대한 속성 (wrap된 상태에서만 의미가 있다.) 
   * [그림으로 비교](https://www.inflearn.com/questions/752797/align-items-vs-align-content)
+  * align-items: center // 각 줄에서 item들이 교차축 중앙으로 정렬됨
+  * align-content: center // 모든 줄이 교차축 중앙으로 정렬됨
 
 
-
-
+* [basis, grow, shrink](https://studiomeal.com/archives/197)
 
 
 
