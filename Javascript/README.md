@@ -52,3 +52,17 @@
 
     사용: greetings.sayHello('jingu'); 또는 greetings['sayHello']('jingu');
     ```
+
+  * for in 주의점<br> 정수형 프로퍼티에 한해서 오름차순으로 정렬이 되고 나머지는 추가한 순서대로 정렬돼서 출력된다. (정수형 프로퍼티가 문자열이어도 마찬가지이다)
+
+
+  * [Date 객체](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Date)// 필요할 때 봐라
+
+* 배열
+  * 배열의 값을 삭제하고 싶을 땐 splice 메서드 사용(삭제 뿐 아니라 추가, 수정 가능) splice(startInex, deleteCount, item...)
+    * arr.splice(1) // 1번째 인덱스를 포함한 이후의 모든 요소를 삭제
+    * arr.splice(1, 1) // 1번째 인덱스로 부터 1개의 요소를 삭제 (자바에서 list.remove(1)과 동일)
+    * arr.splice(1, 1, 'hi', 'hello') // 1번 인덱스로부터 1개를 삭제하고 그 자리에 hi와 hello를 추가
+   
+    * arr.splice(1, 0, 'hi', 'hello') // 삭제를 안하고 첫번째 인덱스에 값을 추가
+  
