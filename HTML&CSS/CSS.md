@@ -120,3 +120,6 @@ background-size: 40px 30px; /* 가로 40px 세로 30px */
  * position: sticky
    * static 처럼 원래 위치에 배치돼 있다가, 정해진 위치에 브라우저가 스크롤되면 그때부터 fixed처럼 고정
    * 요소의 원래 자리를 차지
+
+
+* [CSS 단위](https://webclub.tistory.com/356) // 뷰포트 관련 단위 기억하자자
