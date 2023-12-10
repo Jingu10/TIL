@@ -71,7 +71,7 @@
   * arr.pop(); // 배열의 마지막 요소를 삭제
   * arr.unshift(값); // 배열의 첫 요소로 값 추가
   * arr.push(값); // 배열의 마지막 요소로 값 추가
-  * arr.inderOf(값); // 배열에 값이 포함돼 있는지 확인 가능. 있다면, 인덱스 반환. 없으면 -1 반환. 여러개면, 가장 앞에 있는 놈 반환
+  * arr.indexOf(값); // 배열에 값이 포함돼 있는지 확인 가능. 있다면, 인덱스 반환. 없으면 -1 반환. 여러개면, 가장 앞에 있는 놈 반환
   * arr.includes(값); // 있으면 true
   * arr.reverse(); // 배열 뒤집기
   * 배열에선 for in 말고, for of 문을 써야 한다. (for in의 경우, 값이 아니라 인덱스가 빠져나오기 때문)
@@ -139,6 +139,7 @@ console.log(myNumber.toFixed(7)) // 0.3591000 이 출력 된다. (문자열)
   * 이름을 가지지 않는 익명함수이다.
   * this를 다루는 방식이 일반 함수와 다르다.
   * Arrow Function이 선언되기 직전 유효한 this값과 같다.
+  * 따라서, 객체의 메소드를 만들 땐 Arrow Function 보다는 일반 함수가 좀 더 권장된다.
   ```
   // 일반적인 함수
   const getTwice = function(number) {
@@ -157,6 +158,94 @@ console.log(myNumber.toFixed(7)) // 0.3591000 이 출력 된다. (문자열)
 * this
   * this의 기본값은 window 객체
   * 함수를 호출한 객체가 this에 담긴다.
- 
- 
+
+* 문장과 표현식 
+  * 문장: 어떤 동작이 일어나도록 작성된 최소한의 코드 덩어리
+  * 표현식: 결과적으로 하나의 값이 되는 모든 코드
+  * 표현식은 그 자체로 문장일 수 있다. ex) 할당식, 함수호출
+  * return 문의 값으로 쓸 수 있다면 표현식이다.
     
+* Spread 구문
+  * 각각의 개별값으로 펼쳐준다. 
+  * 객체도 Spread 가능
+```
+const numbers = [1, 2, 3];
+const numbers2 = [4, 5, 6];
+console.log(...numbers); // 1 2 3 출력
+
+const copy = [...numbers, 4]; // [1, 2, 3, 4];
+const union = [...numbers, ...numbers2];
+
+const members = ['진구', '여진', '윤구'];
+const newObject = {...members }; // {0: "진구", 1: "여진", 2: "윤구"}
+// 배열을 펼쳐서 객체에 담으면, 0번 부터 시작하는 배열의 인덱스가 Property Name이 된다.
+```
+
+* 모던한 프로퍼티 표기법
+  * ES2015 이후부터는 변수나 함수를 활용해서 객체의 프로퍼티나 메소드를 만들 때, 변수나 함수의 이름이 프로퍼티 네임으로 사용할 이름과 같다면 중복해서 그 이름을 두 번 작성하지 않고, 하나만 작성해도 된다.
+  
+  * 객체 안에서 함수를 프로퍼티로 사용할 때, function키워드와 : 기호를 생략 가능
+    * ex) getFullName : function() { 함수내용 } // 원래 쓰던 방식
+    * getFullName() { 함수내용 } // 이렇게도 가능
+
+  * 표현식을 대괄호로 감싸면, 프로퍼티 네임으로 사용 가능.
+ 
+* 옵셔널 체이닝 (Optional Chaining)
+  * 옵셔널 체이닝 연산자 (?.)
+  * 만약 옵셔널 체이닝 연산자 왼편의 프로퍼티 값이 undefined 또는 null 이 아니라면 그 다음 프로퍼티 값을 리턴하고 그렇지 않은 경우에는 undefined르르 반환하는 문법
+  * null 병합 연산자(??)와 함께 활용할 수 있다.
+  * a ?? b // a가 null도 아니고 undefined도 아니면 a, 그 외의 경우는 b
+  ```
+  console.log(user.cat?.name ?? '함께 지내는 고양이가 없습니다.');
+  // user.cat 이 존재하면, name 속성을 반환하고, 존재하지 않으면 undefined니까 문자열을 출력
+  ```
+
+* Destructing (구조 분해)
+  * 배열 구조 분해는 대괄호로 감싸기
+  * 객체 구조 분해는 중괄호로 감싸
+```
+// 1. Destructuring 문법을 활용해서 numbers 배열의 각 요소를 one, two, three라는 변수에 할당해보세요
+const numbers = [1, 2, 3];
+const [one, two, three] = numbers;
+
+
+
+// 2. Destructuring 문법을 활용해서 TV는 livingRoom, 나머지 요소들(배열)은 kitchen 변수에 할당해 주세요
+const products = ['TV', '식탁', '냉장고', '전기밥솥', '전자레인지', '오븐', '식기세척기'];
+const [livingRoom, ...kitchen] = products;
+
+
+
+// 3. Destructuring 문법을 활용해서 두 변수의 값을 서로 바꿔주세요
+let firstName = 'Kang';
+let lastName = 'Young';
+[firstName, lastName] = [lastName, firstName];
+
+
+
+// 테스트 코드
+console.log(one);
+console.log(two);
+console.log(three);
+console.log(livingRoom);
+console.log(kitchen[1]);
+console.log(firstName);
+console.log(lastName);
+```
+
+```
+// Destructuring 문법을 활용해서 myBestSong의 프로퍼티 중 title과 artist는 각각 songName과 singer라는 변수에, 나머지는 rest라는 변수에 객체로 할당해 주세요
+const myBestSong = {
+	title: '무릎',
+	artist: '아이유(IU)',
+	release: '2015.10.23.',
+	lyrics: '모두 잠드는 밤에...'
+};
+
+// myBestSong의 title 프로퍼티 네임이 있다면, 그에 해당하는 값을 songName 변수에 저장해라.
+const {title: songName, artist: singer, ...rest} = myBestSong;
+
+console.log(songName);
+console.log(singer);
+```
+
