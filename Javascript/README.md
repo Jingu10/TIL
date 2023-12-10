@@ -29,12 +29,12 @@
   * 근데, 보통 코드 짤 땐 const로 짠다. (진짜 상수는 대문자표기)
  
 
-```
-{
-  name: '여진구', // 왼쪽은 property(속성) 이고, String이다!!
-  age: 27,
-}
-```
+  ```
+  {
+    name: '여진구', // 왼쪽은 property(속성) 이고, String이다!!
+    age: 27,
+  }
+  ```
 * 객체
   * 객체 내부에 접근하는 법은 두가지
     * 점표기법: 객체.객체속성 
@@ -116,4 +116,47 @@ console.log(myNumber.toFixed(7)) // 0.3591000 이 출력 된다. (문자열)
 
 * Parameter: 함수 선언부에서 소괄호 안에 작성되는 것
 * Argument: 함수 호출할 때 Parameter로 전달하는 값
+
+* arguments 객체
+  * 함수 내부에서 사용할 수 있는 객체
+  * 함수를 호출할 때 전달한 argument들이 배열 모양으로 담겨있다. but 배열은 아니다.
+  * 인덱스를 통한 접근 가능, for-of문 사용 가능, length를 통해 길이 확인 가능
+  * but, 배열의 메서드를 활용할 수 없다.
+  * arguments 라는 이름이 정해져있으므로 함수 내부에서 해당 이름 변수를 재정의 하지 않도록 주
   
+* Rest Parameter
+  * 배열이기 때문에, 배열의 메서드를 활용할 수 있다. ex) splice
+  * 변수 앞에 마침표 3개 붙여준다
+  * 일반 parameter와 같이 사용 가능. but 마지막에 써야 한다.
+  ```
+  function func(first, second, ...args) {
+ 
+  }
+  ```
+
+* Arrow Function
+  * arguments를 포함하지 않는다. (Rest Parameter는 사용 가능)
+  * 이름을 가지지 않는 익명함수이다.
+  * this를 다루는 방식이 일반 함수와 다르다.
+  * Arrow Function이 선언되기 직전 유효한 this값과 같다.
+  ```
+  // 일반적인 함수
+  const getTwice = function(number) {
+   return number * 2;
+  };
+
+  const getTwice = (number) => {
+   return number * 2;
+  };
+
+  // return문만 있다면, 중괄호와 return 키워드 또한 생략 가능
+  const getTwice = (number) => number * 2;
+   
+  ```
+
+* this
+  * this의 기본값은 window 객체
+  * 함수를 호출한 객체가 this에 담긴다.
+ 
+ 
+    
