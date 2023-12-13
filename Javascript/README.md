@@ -451,10 +451,8 @@ import * as modules from './modules.js';
 // default export 된 대상을 import 할 때는 as를 써야 한다.
 import { defult as modules } from './modules.js';
 
-
-
-
-
+// 축약형으로 불러올 수도 있다. (위 코드와 같은 동작 default만 가능)
+import modules from './modules.js';
 
     
 
