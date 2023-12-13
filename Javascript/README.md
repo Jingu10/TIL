@@ -269,8 +269,15 @@ const twiceNumbers = numbers.map((element, index, array) => {
 
 console.log(twiceNumbers); // (3) [2, 4, 6]
 
+/*
+forEach와 map 반복 도중 요소가 늘어날 경우, 처음 가지고 있던 요소만큼만 반복.
+but, 줄어들 경우 현재 가지고 있는 요소만큼만 반복.
+*/
+
 
 3. filter: 조건과 일치하는 요소만 모아서 새로운 "배열"을 리턴
+일치하는 요소가 한 개 이더라도, 배열을 리턴하기 때문에 값으로 쓰기 위해선 스프레드 구문을 활용해야함.
+
 const devices = [
   {name: 'GalaxyNote', brand: 'Samsung'},
   {name: 'MacbookPro', brand: 'Apple'},
@@ -285,6 +292,54 @@ const apples = devices.filter((element, index, array) => {
 });
 
 console.log(apples); // (2) [{name: "MacbookPro", brand: "Apple"}, {name: "MacbookAir", brand: "Apple"}]
+
+
+4. find: 조건과 일치하는 가장 첫번째 요소를 리턴하고 반복을 종료
+
+const myLaptop = devices.find((element, index, array) => {
+  console.log(index); // 콘솔에는 0, 1, 2까지만 출력됨.
+  return element.name === 'Gram';
+});
+
+console.log(myLaptop); // {name: "Gram", brand: "LG"}
+
+
+5. some, every
+
+const numbers = [1, 3, 5, 7, 9];
+
+// some: 조건을 만족하는 요소가 1개 이상 있는지
+const someReturn = numbers.some((element, index, array) => {
+  console.log(index); // 콘솔에는 0, 1, 2, 3까지만 출력됨.
+  return element > 5;
+});
+
+console.log(someReturn); // true;
+
+// every: 조건을 만족하지 않는 요소가 1개 이상 있는지
+const everyReturn = numbers.every((element, index, array) => {
+  console.log(index); // 콘솔에는 0까지만 출력됨.
+  return element > 5;
+});
+
+console.log(everyReturn); // false;
+
+
+6. reduce: 누적값을 계산할 때 활용.
+두 개의 파라미터를 활용.
+첫 번째 파라미터는 반복동작할 콜백함수.
+매번 실행되는 콜백함수의 리턴값이 다음에 동작할 콜백함수의 첫번째 파라미터로 전달.
+결과적으로 마지막 콜백함수가 리턴하는 값이 reduce 메소드의 최종 리턴값이 된다.
+두 번 째 파라미터는 초기값. 첫번째로 실행될 콜백함수의 가장 첫 번째 파라미터로 전달.
+
+const numbers = [1, 2, 3, 4];
+
+// reduce
+const sumAll = numbers.reduce((accumulator, element, index, array) => {
+  return accumulator + element;
+}, 0);
+
+console.log(sumAll); // 10
 
 
 
