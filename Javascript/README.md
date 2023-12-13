@@ -342,5 +342,50 @@ const sumAll = numbers.reduce((accumulator, element, index, array) => {
 console.log(sumAll); // 10
 
 
+7. sort
+
+const numbers = [1, 10, 4, 21, 36000];
+
+// 오름차순 정렬
+numbers.sort();
+console.log(numbers); // (5) [1, 4, 10, 21, 36000]
+
+// 내림차순 정렬
+numbers.sort((a, b) => b - a);
+console.log(numbers); // (5) [36000, 21, 10, 4, 1]
+
+
+8. reverse
+
+numbers.reverse();
+console.log(numbers); // [36000, 21, 4, 10, 1];
 
 ```
+
+* Map
+  * 이름이 있는 데이터를 저장한다는 점에서 객체와 비슷.
+  * 일반 객체는 할당연산자를 통해 값을 추가하고 점 표기법이나 대괄호 표기법으로 접근.
+  * Map은 메소드를 통해서 값을 다룸.
+  * const map = new Map();
+  * map.set(key, value): key를 이용해 value를 추가하는 메소드.
+  * map.get(key): key에 해당하는 값을 얻는 메소드. key가 존재하지 않으면 undefined를 반환.
+  * map.has(key): key가 존재하면 true, 존재하지 않으면 false를 반환하는 메소드.
+  * map.delete(key): key에 해당하는 값을 삭제하는 메소드.
+  * map.clear(): Map 안의 모든 요소를 제거하는 메소드.
+  * map.size: 요소의 개수를 반환하는 프로퍼티. (메소드가 아닌 점 주의! 배열의 length 프로퍼티와 같은 역할)
+ 
+* Set
+  * set.add(value): 값을 추가하는 메소드. (메소드를 호출한 자리에는 추가된 값을 가진 Set 자신을 반환.)
+  * set.has(value): Set 안에 값이 존재하면 true, 아니면 false를 반환하는 메소드.
+  * set.delete(value): 값을 제거하는 메소드. (메소드를 호출한 자리에는 셋 내에 값이 있어서 제거에 성공하면 true, 아니면 false를 반환.)
+  * set.clear(): Set 안의 모든 요소를 제거하는 메소드.
+  * set.size: 요소의 개수를 반환하는 프로퍼티. (메소드가 아닌 점 주의! 배열의 length 프로퍼티와 같은 역할
+  * Set은 개별 값에 바로 접근하는 방법이 없다. for of 등을 활용하여 하나씩 접
+  * 처음 Set을 생성할 때 아규먼트로 배열을 전달할 수 있다.
+  ```
+  const numbers = [1, 3, 4, 3, 3, 3, 2, 1, 1, 1, 5, 5, 3, 2, 1, 4];
+  const uniqNumbers = new Set(numbers);
+
+  console.log(uniqNumbers); // Set(5) {1, 3, 4, 2, 5}
+  ```
+  
