@@ -388,4 +388,74 @@ console.log(numbers); // [36000, 21, 4, 10, 1];
 
   console.log(uniqNumbers); // Set(5) {1, 3, 4, 2, 5}
   ```
+
+* 모듈: 자바스크립트 파일 하나. 
+  * 모듈 스코프
+    * 모듈 파일 안에서 선언한 변수는 외부에서 접근할 수 없도록 막아야 한다.
+    * 즉, 파일 안에서 모듈 파일만의 독립적인 스코프를 가지고 있어야 한다.
+    * HTML파일에서 자바스크립트 파일을 불러올 때 모듈 스코프를 갖게 하려면 script 태그에 type 속성을 module 이라는 값으로 지정해주어야 한다.
+    ```
+    <body>
+  	<script type="module" src="index.js"></script> // 모든 파일을 다 쓰는 게 아니라, 진입점이 되는 자바스크립트 파일만 써주면 된다.
+    </body>
+    ```
+
+```
+// 선언문 export
+export const title = 'Module';
+
+
+// 선언된 변수나 함수를 코드 블록으로 묶어서 export
+const printer = (value) => {
+  console.log(value);
+};
+
+const arrPrinter = (arr) => {
+  arr.forEach((el, i) => {
+    console.log(`${i + 1}. ${el}`);
+  })
+};
+
+export { printer, arrPrinter }; // 객체를 export 한 게 아님!
+
+
+// as 키워드를 통해 이름을 변경해서 export
+export { printer as namedPrinter, arrPrinter };
+
+
+// default 키워드를 통해 표현식을 export
+const title = 'Module';
+export default title;
+
+
+// 값을 바로 export도 가능하다
+export default 'Module'
+
+
+// 여러 대상을 객체 값으로 모아 default로 내보내는 방식도 가능
+export default { title, printer, arrPrinter }; // {title: title, printer: printer, arrPrinter: arrPrinter} 이라는 객체가 export 된 거임!
+
+
+// 선택적 import
+import { title, data } from './modules.js';
+
+
+// 이름 바꿔 import
+import { title as moduleTitle, data } from './modules.js';
+
+
+// 모두 불러오기
+import * as modules from './modules.js';
+
+
+// default export 된 대상을 import 할 때는 as를 써야 한다.
+import { defult as modules } from './modules.js';
+
+
+
+
+
+
+    
+
   
