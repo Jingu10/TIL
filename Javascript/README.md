@@ -249,3 +249,43 @@ console.log(songName);
 console.log(singer);
 ```
 
+* 배열 메소드
+```
+1. forEach
+
+const numbers = [1, 2, 3];
+
+numbers.forEach((element, index, array) => {
+  console.log(element); // 순서대로 콘솔에 1, 2, 3이 한 줄씩 출력됨.
+});
+
+
+2. map: 첫번째 아규먼트로 전달하는 콜백 함수가 매번 리턴하는 값들을 모아서 새로운 배열을 만들어 리턴한다.
+
+const numbers = [1, 2, 3];
+const twiceNumbers = numbers.map((element, index, array) => {
+  return element * 2;
+});
+
+console.log(twiceNumbers); // (3) [2, 4, 6]
+
+
+3. filter: 조건과 일치하는 요소만 모아서 새로운 "배열"을 리턴
+const devices = [
+  {name: 'GalaxyNote', brand: 'Samsung'},
+  {name: 'MacbookPro', brand: 'Apple'},
+  {name: 'Gram', brand: 'LG'},
+  {name: 'SurfacePro', brand: 'Microsoft'},
+  {name: 'ZenBook', brand: 'Asus'},
+  {name: 'MacbookAir', brand: 'Apple'},
+];
+
+const apples = devices.filter((element, index, array) => {
+  return element.brand === 'Apple';
+});
+
+console.log(apples); // (2) [{name: "MacbookPro", brand: "Apple"}, {name: "MacbookAir", brand: "Apple"}]
+
+
+
+```
