@@ -454,6 +454,6 @@ import { defult as modules } from './modules.js';
 // 축약형으로 불러올 수도 있다. (위 코드와 같은 동작 default만 가능)
 import modules from './modules.js';
 
-    
+```
 
-  
+
