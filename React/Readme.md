@@ -36,5 +36,36 @@
   // element를 render 하면 안녕 리액트가 세 번 출력된다.
   ```
 
+* children
+  * props에 있는 특별한 프로퍼티 (prop)
+  * JSX 문법으로 컴포넌트를 작성할 때 컴포넌트를 단일 태그가 아니라 여는 태그와 닫는 태그의 형태로 작성하면, 그 안에 작성된 코드가 childern 값에 담기게 된다.
+  ```
+  function Button({ children }) {
+    return <button>{children}</button>;
+  }
+
+  export default Button;
+
+  ///
+  
+  import Button from './Button';
+  import Dice from './Dice';
+  
+  function App() {
+    return (
+      <div>
+        <div>
+          <Button>던지기</Button> // "던지기"가 Button의 childern 값에 담기게 된다.
+          <Button>처음부터</Button>
+        </div>
+        <Dice color="red" num={2} />
+      </div>
+    );
+  }
+  
+  export default App;
+
+
+  ```
   
   
