@@ -16,13 +16,14 @@
 * 리액트 컴포넌트
   ```
   const element = <h1>안녕 리액트</h1>;
-  console.log(element); // Object 출력. 즉, element는 리액트 오브젝트이다.
+  console.log(element); // JSX 문법으로 작성된 요소는 결과적으로 자바스크립트 객체가 된다.
+  // element는 자바스크립트 객체. 이런 객체를 리액트 엘리먼트 라고 부른다.
 
   function Hello() {
     return <h1>안녕 리액트</h1>
   }
   // 리액트 컴포넌트
-  // 함수 이름이 대문자로 시작하고, 반드시 jsx 문법으로 만든 리액트 오브젝트를 반환해야 한다.
+  // 함수 이름이 대문자로 시작하고, 반드시 jsx 문법으로 만든 리액트 엘리멘트를 반환해야 한다.
 
   const element = {
     <>
