@@ -473,3 +473,22 @@ import modules from './modules.js';
  
 * 요소노드: 태그를 표현하는 노드
 * 텍스트노드: 요소 노드의 자식 노드가 되고, 자식 노드를 가질 수 없다.
+
+
+### fetch와 promise 객체, then 메소드
+* fetch 함수는 promise 객체를 리턴한다.
+* promise 객체는 어떤 작업에 대한 '상태 정보'를 가지고 있는 객체.
+* promise 객체는 세 가지 상태를 가진다.
+  * pending(대기): 초기 상태. 진행중
+  * fulfilled(이행): 성공. 이 상태가 되면 promise 객체는 작업 성공 결과도 함께 가진다.
+  * rejected(거부): 실패. 에러 객체를 함께 가진다.
+* then 메서드는 promise 객체의 메소드이다.
+* then 메서드는 promise 객체가 fulfilled or rejected 상태가 될 때 실행할 콜백함수를 등록하는 메서드.
+* then 메서드도 promise 객체를 리턴한다. 처음엔 pending 상태.
+* 콜백 함수가 promise 객체를 리턴하면 그 상태를 then 메서드가 리턴한 promise 객체가 따라간다.
+* text() 메서드, json() 메서드는 promise 객체를 리턴한다.
+* 콜백 함수가 promise 객체가 아닌 값을 return 하면 then 메서드가 리턴한 promise 객체는 fulfilled 상태가 된다.
+* then 메서드의 첫번째 인자는 then 메서드를 호출한 promise 객체가 fulfilled 상태가 됐을 때 실행할 콜백함수이고, 두번째 인자는 rejected 상태가 됐을 때 실행할 콜백함수이다.
+* 실행된 콜백이 아무 값도 리턴하지 않은 경우는 undefined를 return 한 것으로 간주하고, promise 가 아닌 값을 리턴한 것이므로 then 메서드가 리턴한 promise 객체를 fulfilled 상태로 만든다.
+* 실행된 콜백 내부에서 에러가 발생하면 then 메소드가 리턴한 promise 객체는 rejected 상태가 되고, 작업 실패 정보로 해당 에러 객체를 갖게 된다.
+* 아무런 콜백도 실행되지 않는다면, ( ex)실패했는데 실패콜백이 없음 ) 이전 promise 객체와 동일한 상태와 결과를 갖게 된다.
