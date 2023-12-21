@@ -489,6 +489,6 @@ import modules from './modules.js';
 * text() 메서드, json() 메서드는 promise 객체를 리턴한다.
 * 콜백 함수가 promise 객체가 아닌 값을 return 하면 then 메서드가 리턴한 promise 객체는 fulfilled 상태가 된다.
 * then 메서드의 첫번째 인자는 then 메서드를 호출한 promise 객체가 fulfilled 상태가 됐을 때 실행할 콜백함수이고, 두번째 인자는 rejected 상태가 됐을 때 실행할 콜백함수이다.
-* 실행된 콜백이 아무 값도 리턴하지 않은 경우는 undefined를 return 한 것으로 간주하고, promise 가 아닌 값을 리턴한 것이므로 then 메서드가 리턴한 promise 객체를 fulfilled 상태로 만든다.
+* 실행된 콜백이 아무 값도 리턴하지 않은 경우는 undefined를 return 한 것으로 간주하고, promise 가 아닌 값을 리턴한 것이므로 then 메서드가 리턴한 promise 객체를 fulfilled 상태로 만든다. (이 때, undefined를 작업 성공 결과로 가지게 된다!! 다음 then의 인자로 undefined가 전달됨)
 * 실행된 콜백 내부에서 에러가 발생하면 then 메소드가 리턴한 promise 객체는 rejected 상태가 되고, 작업 실패 정보로 해당 에러 객체를 갖게 된다.
 * 아무런 콜백도 실행되지 않는다면, ( ex)실패했는데 실패콜백이 없음 ) 이전 promise 객체와 동일한 상태와 결과를 갖게 된다.
