@@ -55,30 +55,7 @@
     return (
       <div>
         <div>
-          <Button>던지기</Button> // "던지기"가 Button의 childern 값에 담기게 된다.
-          <Button>처음부터</Button>
-        </div>
-        <Dice color="red" num={2} />
-      </div>
-    );
-  }
-  
-  export default App;
-
-
-  ```
-  
-  
-* useEffect
-```
-  useEffect(() => {
-    handleLoad(order);
-  }, [order]);
-
-// useEffect는 아규먼트로 콜백함수와 의존배열(dependency list)을 받는다.
-// 리액트는 콜백함수와 의존배열을 기억해놨다가 처음 렌더링 했을 때 콜백함수를 실행하고,
-// 그 이후 렌더링 부터는 의존배열 안의 값들이 바뀌었을 때만 콜백함수를 실행한다.
-// 그래서, 의존배열이 비어있으면 처음 mount 할 때만 콜백 함수를 실행 (의존 배열 값이 바뀌지 않을거니까)
+    가 비어있으면 처음 mount 할 때만 콜백 함수를 실행 (디펜던시 리스트 값이 바뀌지 않을거니까)
 ```
 
 
