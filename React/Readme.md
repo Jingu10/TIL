@@ -80,3 +80,37 @@
 // 그 이후 렌더링 부터는 의존배열 안의 값들이 바뀌었을 때만 콜백함수를 실행한다.
 // 그래서, 의존배열이 비어있으면 처음 mount 할 때만 콜백 함수를 실행 (의존 배열 값이 바뀌지 않을거니까)
 ```
+
+
+* setState의 콜백함수에 대해서
+```
+import React, { useState } from 'react';
+
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  const increment = () => {
+    // 이전 상태 값에 의존하여 새로운 상태를 계산
+    setCount(prevCount => prevCount + 1);
+    // setCount(count + 1);
+  };
+
+  return (
+    <div>
+      <p>{count}</p>
+      <button onClick={increment}>증가</button>
+    </div>
+  );
+}
+
+/*
+콜백 함수를 전달하는 방식: setState((prevState) => newState)
+새로운 상태 값이 이전 상태 값에 의존할 때 사용
+여기서 prevState는 업데이트되기 전의 상태
+
+만약 setCount(count + 1)과 같이 직접 상태 값을 참조하여 업데이트하는 방식을 사용한다면,
+여러 상태 업데이트가 배치로 처리될 때 각 업데이트가 참조하는 상태 값이 예상과 다를 수 있다.
+그러나 setCount(prevCount => prevCount + 1)와 같이 콜백 함수를 사용하면,
+각 업데이트는 항상 정확한 이전 상태 값을 참조하여 계산됩니다.
+*/
+```
