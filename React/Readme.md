@@ -39,7 +39,7 @@
 * children
   * props에 있는 특별한 프로퍼티 (prop)
   * JSX 문법으로 컴포넌트를 작성할 때 컴포넌트를 단일 태그가 아니라 여는 태그와 닫는 태그의 형태로 작성하면, 그 안에 작성된 코드가 childern 값에 담기게 된다.
-  ```
+```
   function Button({ children }) {
     return <button>{children}</button>;
   }
@@ -55,11 +55,34 @@
     return (
       <div>
         <div>
-    가 비어있으면 처음 mount 할 때만 콜백 함수를 실행 (디펜던시 리스트 값이 바뀌지 않을거니까)
+          <Button>던지기</Button> <!-- "던지기" 라는 값이 Button 컴포넌트의 children 프로퍼티의 값으로 담긴다. -->
+          <Button>처음부터</Button>
+        </div>
+        <Dice color="red" num={2} />
+      </div>
+    );
+  }
+  
+  export default App;
+
+```
+
+* useEffect
+```
+  useEffect(() => {
+    handleLoad(order);
+  }, [order]);
+
+// useEffect는 아규먼트로 콜백함수와 디펜던시 리스트(dependency list)을 받는다.
+// 리액트는 콜백함수와 디펜던시 리스트를 기억해놨다가 처음 렌더링 했을 때 콜백함수를 실행하고,
+// 그 이후 렌더링 부터는 디펜던시 리스트 안의 값들이 바뀌었을 때만 콜백함수를 실행한다.
+// 그래서, 디펜던스 리스트가 비어있으면 처음 mount 할 때만 콜백 함수를 실행 (디펜던시 리스트 값이 바뀌지 않을거니까)
 ```
 
 
+
 * setState의 콜백함수에 대해서
+
 ```
 import React, { useState } from 'react';
 
